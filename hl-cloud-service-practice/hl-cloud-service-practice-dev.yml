@@ -1,7 +1,7 @@
 example:
   property: I AM DEV
 server:
-  port: 8891
+  port: 8892
   servlet:
     context-path: /hl-practice
   shutdown: graceful

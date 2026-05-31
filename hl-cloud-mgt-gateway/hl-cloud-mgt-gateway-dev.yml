@@ -1,0 +1,27 @@
+server:
+  port: 8882
+  shutdown: graceful
+spring:
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      discovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
+      routes:
+        - id: practice_route
+          uri: lb://hl-cloud-service-practice
+          predicates:
+            - Path=/hl-practice/**
+          filters:
+            - RewritePath=/hl-practice/(?<path>.*), /$\{path}
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ '*' ]
+  endpoint:
+    health:
+      show-details: always

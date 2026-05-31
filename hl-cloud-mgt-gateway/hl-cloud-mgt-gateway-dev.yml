@@ -13,9 +13,9 @@ spring:
         - id: practice_route
           uri: lb://hl-cloud-service-practice
           predicates:
-            - Path=/hl-practice/**
+            - Path=/practice/**
           filters:
-            - RewritePath=/hl-practice/(?<path>.*), /$\{path}
+            - RewritePath=/practice/(?<path>.*), /$\{path}
 management:
   endpoints:
     web:
